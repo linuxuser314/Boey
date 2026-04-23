@@ -41,20 +41,20 @@ int main(void){
 
   while(true){
     
-      if(checkForButtonPress(BUTTON)){
+    if(checkForButtonPress(BUTTON)){
       buttonIsPressed = !buttonIsPressed;
       if(buttonIsPressed){
-        serialTransmitMsg('B', 1);
+        serialTransmitMsg('0', '1');
       }
       else{
-        serialTransmitMsg('B', 0);
+        serialTransmitMsg('0', '0');
       }
     }
 
     tempMsg = readSerialMsg();
-    if(tempMsg.id == 'B' && tempMsg.val == 1){
+    if(tempMsg.id == '0' && tempMsg.val == '1'){
       myDigitalWrite(LED, ON);
-    }else if(tempMsg.id == 'B' && tempMsg.val == 0){
+    }else if(tempMsg.id == '0' && tempMsg.val == '0'){
       myDigitalWrite(LED, OFF);
     }
     myDelay(100);
