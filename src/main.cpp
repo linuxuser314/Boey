@@ -19,6 +19,7 @@ static bool checkForButtonPress(const PinStruct pin) {
     //If the button is not pressed but it was previously being pressed, reset the buttonIsPressed for the next press.
     else if (!buttonVal && buttonIsPressed == true) {
       buttonIsPressed = false;
+      return 0;
     }
     else{
       //This is for the case where the button state has not changed, so we just return 0.
@@ -33,6 +34,7 @@ int main(void){
   initTimer2Millis();
   initSerial9600();
   myPinMode(BUTTON, IN);
+  myDigitalWrite(BUTTON, ON); //Enable pull-up resistor
   myPinMode(LED, OUT);
   bool buttonIsPressed = false;
   msgStruct tempMsg = {'\0', 0};
