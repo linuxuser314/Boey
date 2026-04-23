@@ -41,7 +41,7 @@ int main(void){
 
   while(true){
     
-    if(checkForButtonPress(BUTTON)){
+      if(checkForButtonPress(BUTTON)){
       buttonIsPressed = !buttonIsPressed;
       if(buttonIsPressed){
         serialTransmitMsg('B', 1);
@@ -59,5 +59,6 @@ int main(void){
     }
     myDelay(100);
   }
-	
+    
+  
 }
